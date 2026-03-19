@@ -1,201 +1,365 @@
-:root{
-    --cor-fundo: #000000;
-    --cor-fundo-2: #130d12;
-    --cor-primaria: #6a25b9;
-    --cor-texto: #ffffff;
+/* --- CONFIGURAÇÕES GLOBAIS --- */
+:root {
+    --rosa: #ff007f;
+    --roxo: #4b0082;
+    /* Um cinza quase preto, mas que reflete luz */
+    --preto-aba: #121212; 
+    /* Um roxo bem escuro e elegante para as seções */
+    --roxo-aba: #1a0b2e; 
+    --glass: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(90deg, var(--cor-fundo) 30%, var(--cor-fundo-2) 70%);
-    padding-top: 80px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--preto-profundo);
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* container padrão */
-
-.container{
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;/* centraliza horizontalmente */
-    padding: 20px;
-    padding-top: 10px;
-}
-
-/* menu */
-
-.menu {
+/* --- MENU ULTRA-MINIMALISTA --- */
+header {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-
-    display: flex;
-    justify-content: center;
-
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 40px;
-
-    padding: 12px 35px;
-
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-
     z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+}
+
+.menu {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-glass);
+    border-radius: 50px;
+    padding: 12px 30px;
 }
 
 .menu ul {
     display: flex;
+    justify-content: space-between;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
 }
 
-.menu li {
-    margin: 0;
-    padding: 0;
-    border-radius: 20px;
-    transition: background 0.2s;
-}
-
-.menu a{
+.menu a {
+    color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    transition: color 0.2s;
-    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
 }
 
 .menu a:hover {
-    color: #c084fc;
+    color: var(--rosa);
+    text-shadow: 0 0 10px var(--rosa);
 }
 
-/* sections */
-
-section{
-    width: 100%;
-    min-height: 100vh; /* garante que cada seção ocupe pelo menos a altura total da tela */
-}
-
-/* home e projetos */
-
-#home,
-#projetos{
-    width: 100%;
-    margin-top: 50px;
-    padding: 80px 0; /* espaçamento vertical maior */
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 20px;
-
-    background: transparent;
-    border-radius: 0;
-    border: none;
-    box-sizing: border-box;
-}
-
-/* sobre e contato */
-
-#sobre,
-#contato {
-    min-height: 100vh;
-    width: 100%;
-    margin: 0;
-    
-    padding: 120px 0; /* espaçamento vertical maior para destacar o conteúdo */
-
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-}
-
-/* fundos */
-
+/* --- HERO SECTION (LAYER DE FUNDO FIXO) --- */
 #home {
-    background: transparent;
-}
-
-#sobre {
-    background: linear-gradient(135deg, #f3e9ff 0%, #dff5ff 100%);
-}
-
-#contato {
-   background: linear-gradient(135deg, #fdfde7 0%, #d7f5f9 100%);
-}
-
-/* títulos */
-
-h1{
-    font-size: 36px;
-    color: #fff;
-}
-
-h2{
+    height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 400% 400%;
+    animation: gradientBG 18s ease infinite;
+    /* REGRAS DE SOBREPOSIÇÃO */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#home::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+}
+
+.container h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+/* --- SEÇÕES GERAIS (STACKED LAYOUT) --- */
+section {
+    padding: 120px 0;
+    display: flex;
+    justify-content: center;
+    /* REGRAS DE SOBREPOSIÇÃO */
+    position: relative;
+    background-color: var(--preto-profundo); /* Garante que a aba seja opaca */
+}
+
+.container {
+    width: 90%;
     max-width: 1000px;
+}
 
-    background: rgba(211, 3, 200, 0.15);
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    display: inline-block;
+    background: linear-gradient(90deg, var(--rosa), var(--roxo));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+/* --- SEÇÃO SOBRE (A NOVA ABA) --- */
+#sobre {
+    z-index: 2;
+    margin-top: -10vh;
+    /* Escolha entre var(--preto-aba) ou var(--roxo-aba) abaixo: */
+    background-color: var(--roxo-aba); 
+    border-radius: 50px 50px 0 0;
+    
+    /* SOMBRA: Aumentei o espalhamento para dar mais volume */
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.8); 
+    
+    /* LINHA DE LUZ: Isso aqui é o que faz a aba aparecer de verdade */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
+    position: relative;
+}
 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+#sobre .container {
+    background: var(--glass);
+    border: 1px solid var(--border-glass);
+    padding: 50px;
+    border-radius: 24px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 20px 50px rgba(32, 32, 32, 0.5);
+}
 
-    border: 1.5px solid rgba(255,255,255,0.25);
-    border-radius: 32px;
+#sobre p {
+    font-size: 1.15rem;
+    max-width: 700px;
+    border-left: 3px solid var(--rosa);
+    padding-left: 20px;
+}
 
-    margin-top: 10px;
+/* --- SEÇÃO PROJETOS --- */
+#projetos {
+    z-index: 3;
+    background-color: var(--preto-aba); 
+}
 
-    padding: 10px 30px;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
 
-    transition: background 0.3s, box-shadow 0.3s;
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
 
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--rosa);
+    box-shadow: 0 15px 30px rgba(255, 0, 127, 0.15);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: #111;
+    overflow: hidden;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a0628, #4b0082);
+    opacity: 0.6;
+    transition: 0.4s;
+}
+
+.project-card:hover .img-placeholder {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     color: #fff;
 }
 
-h2:hover {
-    background: rgba(211, 3, 200, 0.25);
-    box-shadow: 0 6px 30px 0 rgba(0,0,0,0.15);
+.project-info p {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-bottom: 20px;
 }
 
-/* texto */
+/* BOTÃO DO PROJETO */
+.btn-project {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--rosa);
+    color: var(--rosa);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: 0.3s;
+}
 
-p{
-    font-size: 18px;
+.btn-project:hover {
+    background: var(--rosa);
+    color: white;
+    box-shadow: 0 0 20px var(--rosa);
+}
+
+.subtitle {
+    opacity: 0.7;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+/* --- SEÇÃO CONTATO --- */
+#contato {
+    z-index: 4;
+    text-align: center;
+    padding: 150px 20px; 
+    /* Cor sólida no final para não vazar o vídeo */
+    background-color: var(--preto-aba); 
+}
+
+#contato .container {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contato h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, var(--rosa));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#contato p {
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.email-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rosa);
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.4s;
+    position: relative;
+}
+
+.email-link:hover {
     color: #fff;
+    text-shadow: 0 0 20px var(--rosa), 0 0 40px var(--rosa);
+    transform: scale(1.05);
 }
 
-/* responsividade */
-
-@media (max-width:768px){
-
-.menu ul{
-    gap:15px;
+/* --- ANIMAÇÕES --- */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.menu a{
-    font-size:16px;
+html {
+    scroll-padding-top: 100px;
 }
 
-h1{
-    font-size:28px;
+#home h1, #home p, section:not(#home) .container > * {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(10px);
 }
 
-h2{
-    font-size:22px;
+@keyframes videoLoopFade {
+    0%, 100% { opacity: 0; }
+    5%, 95% { opacity: 1; }
 }
 
-p{
-    font-size:16px;
+#home::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: rgba(5, 5, 5, 0.5); 
+    backdrop-filter: blur(60px); 
+    -webkit-backdrop-filter: blur(60px);
+    mask-image: linear-gradient(to bottom, transparent, black);
+    z-index: 2;
 }
 
+.menu {
+    opacity: 0;
+    transform: translateY(-50px);
+    filter: none !important; 
+}
+
+.project-1 {
+    background-image: url('img/projeto1.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; 
+}
+
+.project-2 {
+    background-image: url('img/projeto2.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 1; 
+}
+
+.midiaBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Garante que fique atrás do texto da Hero */
+}
+
+img, video {
+    width: 100%;
+    height: 100%; /* Ajustado para 100% para evitar frestas */
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    inset: 0;
 }

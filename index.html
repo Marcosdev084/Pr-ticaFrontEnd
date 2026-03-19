@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,34 +25,84 @@
     </header>
     <main>
       <section id="home">
+        <div class="midiaBackground"><img src="img/Animação_de_imagem_202603191849.jpeg" alt=""></div>
         <div class="container">
           <h1>Bem-vindo ao meu portfólio</h1>
           <p>Conheça meus projetos e habilidades.</p>
         </div>
       </section>
       <section id="sobre">
-        <div class="container"><h2>Sobre mim</h2>
-        <p>
-          Me chamo Marcos Aurélio, tenho 22 anos e sou um jovem desenvolvedor
-          web. Desde pequeno, sempre fui fascinado pela tecnologia e pela
-          internet, o que me levou a escolher a área de desenvolvimento como
-          carreira. Tenho experiência em HTML, CSS, JavaScript e algumas
-          bibliotecas como React e Vue.js. Estou sempre buscando aprender novas
-          tecnologias e aprimorar minhas habilidades para criar projetos
-          inovadores e eficientes.
-        </p> </div>
-      </section>
-      <section id="projetos">
-        <div class="container"><h2>Projetos</h2>
-        <p>Lista dos seus principais projetos.</p> </div>
-        
-      </section>
-      <section id="contato">
-        <div class="container"><h2>Contato</h2>
-        <p>Formas de entrar em contato.</p>
+        <div class="container">
+          <h2>Sobre mim</h2>
+          <p>
+            Me chamo Marcos Aurélio, tenho 22 anos e sou um jovem desenvolvedor
+            web. <br>Desde pequeno, sempre fui fascinado pela tecnologia e pela
+            internet, o que me levou a escolher a área de desenvolvimento como
+            carreira. <br>Tenho experiência em HTML, CSS, JavaScript e algumas
+            bibliotecas como React. <br>Estou sempre buscando aprender
+            novas tecnologias e aprimorar minhas habilidades para criar projetos
+            inovadores e eficientes.
+          </p>
         </div>
       </section>
+      <section id="projetos">
+  <div class="container">
+    <h2>Projetos</h2>
+    <p class="subtitle">Uma seleção dos meus trabalhos recentes</p>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">
+          <div class="img-placeholder project-1"></div> 
+        </div>
+        <div class="project-info">
+          <h3>Prática de Animações GSAP</h3>
+          <p>Desenvolvido com HTML, CSS e JavaScript. Projeto focado na prática de animações com a biblioteca GSAP.</p>
+          <a href="https://marcosdev084.github.io/ProjetoRDC1/" class="btn-project">Ver Projeto</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="img-placeholder project-2"></div>
+        </div>
+        <div class="project-info">
+          <h3>Prática Formulário e Contato</h3>
+          <p>Interface criada para prática de formulários e funcionalidades de contato, além de conceitos de design.</p>
+          <a href="https://marcosdev084.github.io/ProjetoMario/" class="btn-project">Ver Projeto</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <div class="img-placeholder"></div>
+        </div>
+        <div class="project-info">
+          <h3>App de Finanças</h3>
+          <p>Mobile-first utilizando Vue.js e Firebase.</p>
+          <a href="#" class="btn-project">Ver Projeto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section id="contato">
+  <div class="container">
+    <h2>Vamos conversar?</h2>
+    <p>Estou aberto a novas oportunidades e projetos incríveis.</p>
+    <a href="mailto:seuemail@exemplo.com" class="email-link">marcosdev.lb@gmail.com</a>
+  </div>
+</section>
+
+      
     </main>
+
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
+
 </html>
