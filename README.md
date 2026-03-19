@@ -1,3 +1,4 @@
+---
 # 🌐 Portfólio Pessoal – Projeto de Aprendizado
 
 Este projeto é um **portfólio pessoal desenvolvido como prática inicial de desenvolvimento web**, com o objetivo de aplicar conceitos fundamentais de **HTML e CSS**, além de explorar novas ideias de layout, design e organização de código.
