@@ -257,6 +257,10 @@ h2 {
     backdrop-filter: blur(10px);
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 #contato h2 {
@@ -284,6 +288,29 @@ h2 {
 }
 
 .email-link:hover {
+    color: #fff;
+    text-shadow: 0 0 20px var(--rosa), 0 0 40px var(--rosa);
+    transform: scale(1.05);
+}
+
+
+.insta-link {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rosa);
+    text-decoration: none;
+    transition: 0.4s;
+    position: relative;
+    background-color: var(--roxo-aba);
+    border-radius: 30px;
+    padding: 10px 7px;
+     /* Adiciona um leve brilho para destacar o link */
+     box-shadow: 0 0 10px var(--roxo-aba), 0 0 20px var(--roxo-aba);
+     max-width: fit-content;
+     gap: 8px;
+}
+
+.insta-link:hover {
     color: #fff;
     text-shadow: 0 0 20px var(--rosa), 0 0 40px var(--rosa);
     transform: scale(1.05);
@@ -340,6 +367,13 @@ html {
 
 .project-2 {
     background-image: url('img/projeto2.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 1; 
+}
+
+.project-3 {
+    background-image: url('img/projeto3.png');
     background-size: cover;
     background-position: center;
     opacity: 1; 
